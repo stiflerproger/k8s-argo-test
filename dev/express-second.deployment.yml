@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-express-app-second
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-express-app-second
+  template:
+    metadata:
+      labels:
+        app: my-express-app-second
+    spec:
+      containers:
+        - name: my-express-container-second
+          image: stiflerproger/simple-server:latest
+          ports:
+            - containerPort: 3010
